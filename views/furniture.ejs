@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/style.css">
+    <title>Modern Furniture Store</title>
+</head>
+
+<body>
+    <header>
+        <h1>Modern Furniture Store</h1>
+        <nav>
+            <a href="/">Home</a>
+            <a href="/furniture">Furniture</a>
+        </nav>
+    </header>
+
+    <main>
+        <h2>Add Furniture</h2>
+        <form action="/api/furniture" method="POST">
+            <label>Name</label>
+            <input type="text" name="name">
+            <label>Brand ID</label>
+            <input type="number" name="brandId">
+            <label>Room ID</label>
+            <input type="number" name="roomId">
+            <label>Price</label>
+            <input type="number" name="price">
+            <button type="submit">Add Furniture</button>
+        </form>
+    </main>
+</body>
+
+</html>

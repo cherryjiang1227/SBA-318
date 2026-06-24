@@ -1,8 +1,8 @@
 import express from "express";
-const router = express.Router();
-
 import rooms from "../data/rooms.js";
 import error from "../utilities/error.js";
+
+const router = express.Router();
 
 router
   .route("/")
@@ -20,11 +20,14 @@ router
 router
   .route("/:id")
   .get((req, res, next) => {
-    const room = rooms.find(
-      (r) => r.id == req.params.id
-    );
-    if (room) res.json(room);
-    else next(error(404, "Room Not Found"));
+  const room = rooms.find((r) => {
+    return r.id == req.params.id;
   });
+  if (room) {
+    res.json(room);
+  } else {
+    next(error(404, "Room Not Found"));
+  }
+});
 
 export default router;

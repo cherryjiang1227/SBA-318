@@ -20,14 +20,14 @@ router
 router
   .route("/:id")
   .get((req, res, next) => {
-  const room = rooms.find((r) => {
-    return r.id == req.params.id;
+    const room = rooms.find((r) => {
+      return r.id == req.params.id;
+    });
+    if (room) {
+      res.json(room);
+    } else {
+      next(error(404, "Room Not Found"));
+    }
   });
-  if (room) {
-    res.json(room);
-  } else {
-    next(error(404, "Room Not Found"));
-  }
-});
 
 export default router;

@@ -1,7 +1,7 @@
 # SBA 318: Express Server Application — Modern Furniture Store
 
 ## Project Overview
-For this skill-based assessment, I built **Modern Furniture Store**, a fictional furniture retailer featuring contemporary furniture from well-known brands such as Design Within Reach, Herman Miller, West Elm, CB2, and IKEA.
+For this assessment, I built **Modern Furniture Store**, a fictional furniture retailer featuring contemporary furniture from well-known brands such as Design Within Reach, Herman Miller, West Elm, CB2, and IKEA.
 
 The goal of this project was to create a RESTful Express application that allows users to browse furniture, organize products by brand and room, and perform basic CRUD operations through a custom API. I also implemented server-side rendering using EJS to create simple webpages that interact with the API.
 ---
@@ -25,7 +25,7 @@ The application includes multiple middleware functions, including:
 * Error-handling middleware
 
 ### Views
-The application uses EJS as its template engine to render multiple pages. Users can navigate between pages and submit a form that sends data directly to the RESTful API.
+The application uses EJS as its template engine to render multiple pages. Users can navigate between pages and submit a form that sends data to the RESTful API.
 
 ### Styling
 A simple external CSS stylesheet provides consistent styling throughout the application.
@@ -67,4 +67,4 @@ I would have spent more time planning the overall navigation and user experience
 The most challenging part of the project was organizing the Express routes and making sure each route worked correctly alongside the middleware. Implementing CRUD operations while keeping the application organized required careful planning.
 
 ### What would I add with more time?
-With additional time, I would expand the furniture catalog by adding images, product descriptions, and additional filtering options. I would also like to connect the application to a database so that new furniture items persist after restarting the server instead of existing only in memory.
+With additional time, I would expand the furniture catalog by adding images, product descriptions, and additional filtering options.

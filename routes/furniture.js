@@ -1,39 +1,35 @@
 import express from "express";
-const router = express.Router();
-
 import furniture from "../data/furniture.js";
 import error from "../utilities/error.js";
+
+const router = express.Router();
 
 router
   .route("/")
   .get((req, res) => {
-  if (req.query.brandId) {
-    const filtered = furniture.filter(
-      (item) => item.brandId == req.query.brandId
-    );
-    return res.json(filtered);
-  }
-  if (req.query.roomId) {
-    const filtered = furniture.filter(
-      (item) => item.roomId == req.query.roomId
-    );
-    return res.json(filtered);
-  }
-  const links = [
-    {
-      href: "furniture/:id",
-      rel: ":id",
-      type: "GET",
-    },
-  ];
-  res.json({ furniture, links });
-})
+    if (req.query.brandId) {
+      const filtered = furniture.filter(
+        (item) => item.brandId == req.query.brandId
+      );
+      return res.json(filtered);
+    }
+    if (req.query.roomId) {
+      const filtered = furniture.filter(
+        (item) => item.roomId == req.query.roomId
+      );
+      return res.json(filtered);
+    }
+    const links = [
+      {
+        href: "furniture/:id",
+        rel: ":id",
+        type: "GET",
+      },
+    ];
+    res.json({ furniture, links });
+  })
   .post((req, res, next) => {
-    if (
-      req.body.name &&
-      req.body.brandId &&
-      req.body.roomId &&
-      req.body.price
+    if (req.body.name && req.body.brandId && req.body.roomId && req.body.price
     ) {
       const item = {
         id: furniture[furniture.length - 1].id + 1,
@@ -42,7 +38,6 @@ router
         roomId: Number(req.body.roomId),
         price: Number(req.body.price),
       };
-
       furniture.push(item);
       res.json(furniture[furniture.length - 1]);
     } else next(error(400, "Insufficient Data"));

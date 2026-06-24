@@ -1,5 +1,4 @@
 import express from "express";
-
 import furniture from "./routes/furniture.js";
 import brands from "./routes/brands.js";
 import rooms from "./routes/rooms.js";
@@ -7,14 +6,16 @@ import rooms from "./routes/rooms.js";
 const app = express();
 const port = 3000;
 
+// Converts JSON from the req body into JavaScript objects
 app.use(express.json());
+// Processes submitted HTML form data
 app.use(express.urlencoded({ extended: true }));
-
+// Logs all requests to the console
 app.use((req, res, next) => {
   console.log(`${req.method} ${req.url}`);
   next();
 });
-
+// Logs a welcome message to the console for all requests
 app.use((req, res, next) => {
   console.log("Welcome to the Modern Furniture Store!");
   next();
@@ -43,6 +44,7 @@ app.use((req, res, next) => {
   });
 });
 
+// Error handling
 app.use((err, req, res, next) => {
   res.status(err.status || 500);
   res.json({
